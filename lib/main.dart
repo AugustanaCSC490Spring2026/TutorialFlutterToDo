@@ -78,8 +78,14 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           for (var item in toDoList)
             ListTile(
-              title: Text(item.title),
-              subtitle: Text("Due: ${item.dueAt.month}/${item.dueAt.day}/${item.dueAt.year}"),
+              title: Text(
+                item.title, 
+                textAlign: TextAlign.center,
+                ),
+              subtitle: Text(
+                "Due: ${item.dueAt.month}/${item.dueAt.day}/${item.dueAt.year}",
+                textAlign: TextAlign.center, 
+                ),
             ),
 
           
