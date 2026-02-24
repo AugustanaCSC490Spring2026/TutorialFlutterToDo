@@ -42,7 +42,27 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
-  
+  var toDoList = <TodoItem>[
+    TodoItem(
+    title: "Buy groceries",
+    dueAt: DateTime(2026, 3, 1),
+  ),
+  TodoItem(
+    title: "Finish project",
+    dueAt: DateTime(2026, 3, 5),
+  ),
+  TodoItem(
+    title: "Gym session",
+    dueAt: DateTime(2026, 2, 28),
+  ),
+  ];
+
+
+  @override
+  void initState() {
+    super.initState();
+    toDoList.sort((a, b) => a.dueAt.compareTo(b.dueAt));
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -57,7 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         children: [
           for (var item in toDoList)
-
+            ListTile(
+              title: Text(item.title),
+              subtitle: Text("Due: ${item.dueAt.month}/${item.dueAt.day}/${item.dueAt.year}"),
+            ),
 
           
         ],
